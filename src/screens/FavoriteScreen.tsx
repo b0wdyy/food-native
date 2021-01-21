@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+import { FoodItem } from "../components/Home/FoodItem";
 import { soupContext } from "../context/SoupContext";
 
 export const FavoriteScreen: React.FC = ({ navigation }) => {
@@ -9,7 +10,11 @@ export const FavoriteScreen: React.FC = ({ navigation }) => {
     return (
         <View style={styles.wrapper}>
             {favorites.length ? (
-                <Text>Goed pik</Text>
+                <ScrollView>
+                    {favorites.map((favorite, idx: number) => (
+                        <FoodItem item={favorite} key={idx} />
+                    ))}
+                </ScrollView>
             ) : (
                 <>
                     <Text>Ja je hebt nog niks</Text>
@@ -28,5 +33,7 @@ const styles = StyleSheet.create({
     wrapper: {
         paddingVertical: 50,
         paddingHorizontal: 30,
+        flex: 1,
+        backgroundColor: "white",
     },
 });

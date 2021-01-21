@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
     StyleSheet,
     View,
@@ -7,13 +7,21 @@ import {
     ImageSourcePropType,
     Dimensions,
 } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import { Item } from "../../types/Item";
+import { soupContext } from "../../context/SoupContext";
 
 interface FoodItemProps {
     item: Item;
 }
 
 export const FoodItem: React.FC<FoodItemProps> = ({ item }) => {
+    const { setFavorites } = useContext(soupContext);
+    const pressHandler = () => {
+        console.log(`${item.itemName} toegevoegd`);
+        setFavorites(prevState => [...prevState, item]);
+    };
+
     return (
         <View style={styles.card}>
             <Image
@@ -36,6 +44,13 @@ export const FoodItem: React.FC<FoodItemProps> = ({ item }) => {
                 <Text style={styles.title}>{item.itemName}</Text>
                 <Text style={{ fontSize: 12 }}>{item.itemDescription}</Text>
             </View>
+
+            <Ionicons
+                name='ios-heart-outline'
+                size={16}
+                style={{ position: "absolute", bottom: 10, right: 15 }}
+                onPress={pressHandler}
+            />
         </View>
     );
 };
