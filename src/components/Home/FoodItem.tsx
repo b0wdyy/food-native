@@ -18,8 +18,14 @@ interface FoodItemProps {
 export const FoodItem: React.FC<FoodItemProps> = ({ item }) => {
     const { setFavorites } = useContext(soupContext);
     const pressHandler = () => {
-        console.log(`${item.itemName} toegevoegd`);
-        setFavorites(prevState => [...prevState, item]);
+        setFavorites((prevState: Array<Item>) => {
+            if (prevState.indexOf(item) === -1) {
+                return [...prevState, item];
+            } else {
+                return prevState.filter(s => s.itemName !== item.itemName);
+            }
+        });
+        item.isFavorite = !item.isFavorite;
     };
 
     return (
@@ -46,8 +52,9 @@ export const FoodItem: React.FC<FoodItemProps> = ({ item }) => {
             </View>
 
             <Ionicons
-                name='ios-heart-outline'
+                name={item.isFavorite ? "ios-heart" : "ios-heart-outline"}
                 size={16}
+                color='#ff7214'
                 style={{ position: "absolute", bottom: 10, right: 15 }}
                 onPress={pressHandler}
             />
