@@ -55,7 +55,6 @@ export const HomeScreen: React.FC = () => {
 const styles = StyleSheet.create({
     wrapper: {
         paddingTop: 20,
-        paddingBottom: 10,
         paddingHorizontal: 30,
         flex: 1,
         backgroundColor: "white",
