@@ -36,9 +36,43 @@ const state = {
         },
         {
             name: "Burgers",
+            items: [
+                {
+                    itemName: "Italiaanse burger",
+                    itemPicture: require("../../assets/images/italiaanse-burger.jpg"),
+                    itemDescription:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                },
+                {
+                    itemName: "Double steakhouse",
+                    itemPicture: require("../../assets/images/double_steakhouse_burger-feat.jpg"),
+                    itemDescription:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                },
+            ],
         },
         {
             name: "Desserts",
+            items: [
+                {
+                    itemName: "Mascarpone creme",
+                    itemPicture: require("../../assets/images/mascarpone-creme-met-kokos.jpg"),
+                    itemDescription:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                },
+                {
+                    itemName: "Chocolade dessert",
+                    itemPicture: require("../../assets/images/chocolade-dessert.jpg"),
+                    itemDescription:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                },
+                {
+                    itemName: "Cappuccinomousse",
+                    itemPicture: require("../../assets/images/img_065558_890x594_JPG.jpg"),
+                    itemDescription:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                },
+            ],
         },
     ],
 };

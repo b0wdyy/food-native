@@ -20,6 +20,7 @@ export const HomeScreen: React.FC = () => {
                             <TouchableOpacity
                                 activeOpacity={0.8}
                                 onPress={() => setActiveCategoryIndex(index)}
+                                key={index}
                             >
                                 {categorie.name ===
                                 state.categories[activeCategoryIndex].name ? (
@@ -43,7 +44,9 @@ export const HomeScreen: React.FC = () => {
                 {state.categories[activeCategoryIndex].items &&
                     state.categories[
                         activeCategoryIndex
-                    ].items.map((item: Item) => <FoodItem item={item} />)}
+                    ].items.map((item: Item, idx) => (
+                        <FoodItem item={item} key={idx} />
+                    ))}
             </ScrollView>
         </View>
     );
